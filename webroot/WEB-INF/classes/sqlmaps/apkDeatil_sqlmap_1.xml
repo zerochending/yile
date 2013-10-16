@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="apkDetail"> 
+<!-- 
+	 <resultMap class="com.tencent.market2.mainpage.vo.ApkDetailVo" id="apkDeatilList">
+		 <result property="id" column="c_instanceid"></result>
+		 <result property="name" column="c_name"></result>
+		 <result property="apkName" column="c_apkname"></result>
+		 <result property="apkCode" column="c_apkcode"></result>
+		 <result property="alBum" column="c_album"></result>
+		 <result property="album48size" column="c_albumff"></result>
+		 <result property="score" column="c_score"></result>
+		 <result property="up" column="c_up"></result>
+		 <result property="down" column="c_down"></result>
+		 <result property="upDown" column="c_updown"></result>
+		 <result property="download" column="c_download"></result>
+		 <result property="downurl" column="c_downurl"></result>
+		 <result property="typeName" column="c_typename"></result>
+		 <result property="size" column="c_size"></result>
+		 <result property="intro" column="c_intro"></result>
+		 <result property="upddesc" column="c_upddesc"></result>
+ 		 <result property="updateTime" column="c_UPDATEtime"></result>
+ 		 <result property="sysver" column="c_sysver"></result>
+ 		 <result property="isTx" column="c_istx"></result>
+ 		 <result property="language" column="c_language"></result>
+ 		 <result property="authorization" column="c_authorization"></result>
+ 		 <result property="version" column="c_version"></result> 
+ 		 <result property="orgame" column="c_orgame"></result> 
+ 		 <result property="orderId" column="c_typeid"></result> 
+ 		 <result property="parentId" column="c_parenttypeid"></result> 
+ 		 <result property="parentName" column="c_parenttypename"></result> 
+ 		 <result property="apkMd5" column="c_apkmd5"></result>
+ 		 
+ 		 <result property="isgf" column="c_isgf"></result>
+ 		 <result property="isvi" column="c_isvi"></result>
+ 		 <result property="isAdv" column="c_noticead"></result>
+ 		 <result property="bannerad" column="c_bannerad"></result>
+ 		 <result property="devper" column="c_devper"></result>
+    </resultMap>
+
+	<select id="getApkDetail" parameterClass="com.tencent.market2.mainpage.vo.ApkDetailParamVo" resultMap="apkDeatilList">
+        SELECT 
+			   b.c_instanceid,b.c_name,b.c_apkname,b.c_apkcode,b.c_album,b.c_albumff,b.c_score,b.c_up,b.c_down,b.c_updown,
+			   b.c_download,b.c_downurl,b.c_typename,b.c_size,b.c_intro,b.c_upddesc,b.c_UPDATEtime,
+	           b.c_sysver,b.c_istx,b.c_language,b.c_authorization,b.c_version,b.c_orgame,b.c_typeid,
+	           b.c_parenttypename,b.c_parenttypeid,b.c_apkmd5,b.c_isgf,b.c_isvi, b.c_noticead, b.c_bannerad,b.c_devper
+                     FROM (	
+                        SELECT 
+							a1.c_instanceid,a1.c_name,a1.c_apkname,a1.c_apkcode,a1.c_album,a1.c_albumff,a2.c_score,a2.c_up,a2.c_down,a2.c_updown,
+							a2.c_download,a1.c_downurl,a1.c_typename,a1.c_size,a3.c_intro,a3.c_upddesc,a3.c_UPDATEtime,
+							a1.c_sysver,a1.c_istx,a1.c_language,a1.c_authorization,a1.c_version,a1.c_orgame,a1.c_typeid,
+							a1.c_parenttypename,a1.c_parenttypeid,a1.c_apkmd5,a3.c_isgf,a3.c_isvi,a3.c_noticead,a3.c_bannerad,a1.c_devper
+					FROM tb_onlinesoft a1,tb_pkgnameside a2, tb_onlinesoftside a3
+					WHERE a1.c_instanceid = a3.c_instanceid  AND a1.c_apkname = a2.c_apkname AND a1.c_apkname = #apkName#
+				    ORDER BY a1.c_apkcode DESC) b
+           LEFT JOIN tb_softverifystate a1 on b.c_instanceid=a1.c_appid;
+	</select> -->
+	
+</sqlMap>

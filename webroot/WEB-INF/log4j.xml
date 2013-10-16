@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+ 	
+	<appender name="PROJECT" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/data/log/yile/appmaster.log" /> 
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%c{10}] - %m%n" />
+		</layout>
+	</appender>
+	 
+	<!-- 关闭框架日志 -->
+    <logger name="com.tencent.memcached" additivity="false">
+			<level value="ERROR"/>
+			<appender-ref ref="MEMCACHE"/>
+	</logger>
+	<logger name="org.springframework" additivity="false">
+			<level value="OFF"/>
+	</logger>
+	<logger name="freemarker.cache" additivity="false">
+			<level value="OFF"/>
+	</logger>
+	<logger name="freemarker.beans" additivity="false">
+			<level value="OFF"/>
+	</logger>
+	<logger name="java.sql" additivity="true">
+			<level value="OFF"/>
+	</logger>
+	<logger name="org.quartz" additivity="true">
+			<level value="OFF"/>
+	</logger>
+	<logger name="org.apache.struts2.config" additivity="true">
+			<level value="OFF"/>
+	</logger>
+		<logger name="com.opensymphony.xwork2" additivity="true">
+			<level value="OFF"/>
+	</logger>
+	<logger name="	org.apache.struts2.spring" additivity="true">
+			<level value="OFF"/>
+	</logger>
+    <!-- 关闭框架日志 -->
+
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="PROJECT" />
+	</root>
+</log4j:configuration>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+	default-autowire="byName">
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
+    
+    <!--通用视图解析器-->  
+    <bean id="viewResolverCommon" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+        <property name="viewClass">  
+            <value>org.springframework.web.servlet.view.InternalResourceView</value>  
+        </property>  
+        <property name="order" value="1"/>  
+    </bean>  
+    
+    <!-- freemarker -->
+    <!-- freemarker页面解析器-->
+	<bean id="viewResolverFtl" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">  
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>  
+        <property name="contentType" value="text/html; charset=utf-8"/>  
+        <property name="cache" value="true" />  
+        <property name="suffix" value=".ftl" />  
+        <property name="order" value="0"/>  
+        <property name="requestContextAttribute" value="request" />  
+        <property name="exposeSpringMacroHelpers" value="true" />  
+        <property name="exposeRequestAttributes" value="true" />  
+        <property name="exposeSessionAttributes" value="true" />  
+        
+    </bean>  
+
+	<!-- 配置Freemarker -->
+	<bean id="freemarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath">
+		    <value>/</value>
+		</property>
+		<property name="freemarkerSettings"><!-- 如果模板不经常更新，此属性设置更新延迟时间 -->
+			<props>
+			    <prop key="template_update_delay">0</prop>
+			    <prop key="defaultEncoding">utf-8</prop>
+				<prop key="template_update_delay">1</prop>
+				<prop key="number_format">0.##########</prop>  
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>  
+                <prop key="classic_compatible">true</prop>  
+                <prop key="template_exception_handler">ignore</prop>  
+			</props>
+		</property>
+	</bean>
+	 
+    <!-- 方法名解析器 -->
+    <bean id="InternalPathMethodNameResolver"
+        class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
+	
+	<bean id="baseAction" class="com.yile.base.BaseAction">
+		<property name="urlPath">
+			<value>${urlPath}</value>
+		</property>
+	    <property name="urlPre">
+			<value>${urlPre}</value>
+		</property>
+	</bean>
+	
+</beans>
