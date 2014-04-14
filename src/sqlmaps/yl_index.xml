@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="index"> 
+
+   <resultMap class="com.yile.index.vo.Msg" id="msg">
+		 <result property="id" column="id"></result>
+		 <result property="msgTitle" column="msgTitle"></result>
+		 <result property="releaseName" column="releaseName"></result>
+		 <result property="releaseTime" column="releaseTime"></result>
+		 <result property="remark" column="remark"></result>
+		 <result property="msgContenxt" column="msgContenxt"></result>
+    </resultMap>
+    
+    <select id="queryNews"  parameterClass="com.yile.index.vo.Page" resultMap="msg">
+	   select id,msgTitle,releaseName,releaseTime,remark,msgContenxt from yl.msg limit #pageNo#,#pageSize# 
+	</select> 
+    
+    <insert id="insertFb"  parameterClass="com.yile.index.vo.FeedBack">
+	   insert into yl.fd (fdContext,connect,companyName,submitTime) values (#fdContext#,#connect#,#companyName#,#submitTime#)
+	    <selectKey resultClass="int" keyProperty="id">
+		   SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert> 
+	
+	<select id="totalNews"  resultClass="int">
+	   select count(1) from yl.msg
+	</select> 
+	
+	 <select id="queryNewsById"  parameterClass="int" resultMap="msg">
+	   select id,msgTitle,releaseName,releaseTime,remark,msgContenxt from yl.msg where id=#id#
+	</select> 
+	
+
+</sqlMap>

@@ -6,9 +6,8 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd" default-autowire="byName">
 	
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
-	<!--  
-	<bean id="apkDetailDao" class="com.tencent.market2.mainpage.dao.impl.ApkDetailDaoImpl">
-      <property name="sqlMapClient" ref="sqlMapClient_resoucre"></property>
-    </bean>-->
-   
+	
+	<bean id="indexDao" class="com.yile.index.dao.impl.IndexDaoImpl">
+      <property name="sqlMapClient" ref="sqlMapClient_yl"></property>
+    </bean>
 </beans>

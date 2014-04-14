@@ -3,19 +3,24 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
  	
 	<appender name="PROJECT" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="file" value="/data/log/yile/appmaster.log" /> 
+		<param name="file" value="/data/log/yile/yl.log" /> 
 		<param name="append" value="true" />
 		<param name="encoding" value="UTF-8" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d %p [%c{10}] - %m%n" />
 		</layout>
 	</appender>
-	 
+	
+	<appender name="index" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/data/log/yile/index.log" /> 
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%c{10}] - %m%n" />
+		</layout>
+	</appender>
+	
 	<!-- 关闭框架日志 -->
-    <logger name="com.tencent.memcached" additivity="false">
-			<level value="ERROR"/>
-			<appender-ref ref="MEMCACHE"/>
-	</logger>
 	<logger name="org.springframework" additivity="false">
 			<level value="OFF"/>
 	</logger>
@@ -42,8 +47,13 @@
 	</logger>
     <!-- 关闭框架日志 -->
 
+    <logger name="indexlog" additivity="true">
+	   <level value="Info" />
+	   <appender-ref ref="index"/>
+	 </logger>
+	 
 	<root>
-		<level value="DEBUG" />
+		<level value="info" />
 		<appender-ref ref="PROJECT" />
 	</root>
 </log4j:configuration>

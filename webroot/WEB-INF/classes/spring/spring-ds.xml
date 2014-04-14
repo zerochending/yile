@@ -8,12 +8,11 @@
 	
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
 		
-		<!-- 
-	<bean id="db_qqapp" class="org.apache.commons.dbcp.BasicDataSource"	destroy-method="close">
-		<property name="driverClassName" value="${db_qqapp.driverClassName}" />
-		<property name="url" value="${db_qqapp.url}" />		
-		<property name="username" value="${db_qqapp.username}" />
-		<property name="password" value="${db_qqapp.password}" />
+	<bean id="yl" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${yl.driverClassName}" />
+		<property name="url" value="${yl.url}" />		
+		<property name="username" value="${yl.username}" />
+		<property name="password" value="${yl.password}" />
 		<property name="initialSize" value="16"/>
 		<property name="maxActive" value="512"/>
 		<property name="maxIdle" value="16"/>
@@ -26,148 +25,10 @@
 		<property name="removeAbandoned" value="true"/>
 		<property name="removeAbandonedTimeout" value="300"/>  		
 	</bean>
-
-    <bean id="sqlMapClient_qqapp" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-		<property name="configLocation" value="classpath:/sqlmaps/datebase.xml"/>
-		<property name="dataSource" ref="db_qqapp"/>
+	
+	<bean id="sqlMapClient_yl" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="classpath:/sqlmaps/database.xml"/>
+		<property name="dataSource" ref="yl"/>
     </bean>
-    
-	<bean id="db_appmaster" class="org.apache.commons.dbcp.BasicDataSource"	destroy-method="close">
-		<property name="driverClassName" value="${db_appmaster.driverClassName}" />
-		<property name="url" value="${db_appmaster.url}" />		
-		<property name="username" value="${db_appmaster.username}" />
-		<property name="password" value="${db_appmaster.password}" />
-		<property name="initialSize" value="16"/>
-		<property name="maxActive" value="512"/>
-		<property name="maxIdle" value="16"/>
-		<property name="maxWait" value="3000"/>
-		<property name="validationQuery" value="select COUNT(*) from DUAL"/>
-		<property name="testWhileIdle" value="true"/>
-		<property name="timeBetweenEvictionRunsMillis" value="10000"/>
-		<property name="numTestsPerEvictionRun" value="5"/>
-		<property name="logAbandoned" value="true"/>
-		<property name="removeAbandoned" value="true"/>
-		<property name="removeAbandonedTimeout" value="300"/>  		
-	</bean>
-
-    <bean id="sqlMapClient_appmaster" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-		<property name="configLocation" value="classpath:/sqlmaps/datebase.xml"/>
-		<property name="dataSource" ref="db_appmaster"/>
-    </bean>
-    
-    <bean id="db_logfor" class="org.apache.commons.dbcp.BasicDataSource"	destroy-method="close">
-		<property name="driverClassName" value="${db_logfor.driverClassName}" />
-		<property name="url" value="${db_logfor.url}" />		
-		<property name="username" value="${db_logfor.username}" />
-		<property name="password" value="${db_logfor.password}" />
-		<property name="initialSize" value="16"/>
-		<property name="maxActive" value="512"/>
-		<property name="maxIdle" value="16"/>
-		<property name="maxWait" value="3000"/>
-		<property name="validationQuery" value="select COUNT(*) from DUAL"/>
-		<property name="testWhileIdle" value="true"/>
-		<property name="timeBetweenEvictionRunsMillis" value="10000"/>
-		<property name="numTestsPerEvictionRun" value="5"/>
-		<property name="logAbandoned" value="true"/>
-		<property name="removeAbandoned" value="true"/>
-		<property name="removeAbandonedTimeout" value="300"/>  		
-	</bean>
-
-    <bean id="sqlMapClient_logfor" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-		<property name="configLocation" value="classpath:/sqlmaps/datebase.xml"/>
-		<property name="dataSource" ref="db_logfor"/>
-    </bean>
-    
-    <bean id="db_userappinfo1" class="org.apache.commons.dbcp.BasicDataSource"	destroy-method="close">
-		<property name="driverClassName" value="${db_userappinfo1.driverClassName}" />
-		<property name="url" value="${db_userappinfo1.url}" />		
-		<property name="username" value="${db_userappinfo1.username}" />
-		<property name="password" value="${db_userappinfo1.password}" />
-		<property name="initialSize" value="16"/>
-		<property name="maxActive" value="512"/>
-		<property name="maxIdle" value="16"/>
-		<property name="maxWait" value="3000"/>
-		<property name="validationQuery" value="select COUNT(*) from DUAL"/>
-		<property name="testWhileIdle" value="true"/>
-		<property name="timeBetweenEvictionRunsMillis" value="10000"/>
-		<property name="numTestsPerEvictionRun" value="5"/>
-		<property name="logAbandoned" value="true"/>
-		<property name="removeAbandoned" value="true"/>
-		<property name="removeAbandonedTimeout" value="300"/>  		
-	</bean>
-
-    <bean id="sqlMapClient_userappinfo1" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-		<property name="configLocation" value="classpath:/sqlmaps/datebase.xml"/>
-		<property name="dataSource" ref="db_userappinfo1"/>
-    </bean>
-    
-    <bean id="db_adeffect" class="org.apache.commons.dbcp.BasicDataSource"	destroy-method="close">
-		<property name="driverClassName" value="${db_adeffect.driverClassName}" />
-		<property name="url" value="${db_adeffect.url}" />		
-		<property name="username" value="${db_adeffect.username}" />
-		<property name="password" value="${db_adeffect.password}" />
-		<property name="initialSize" value="16"/>
-		<property name="maxActive" value="512"/>
-		<property name="maxIdle" value="16"/>
-		<property name="maxWait" value="3000"/>
-		<property name="validationQuery" value="select COUNT(*) from DUAL"/>
-		<property name="testWhileIdle" value="true"/>
-		<property name="timeBetweenEvictionRunsMillis" value="10000"/>
-		<property name="numTestsPerEvictionRun" value="5"/>
-		<property name="logAbandoned" value="true"/>
-		<property name="removeAbandoned" value="true"/>
-		<property name="removeAbandonedTimeout" value="300"/>  		
-	</bean>
-
-    <bean id="sqlMapClient_adeffect" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-		<property name="configLocation" value="classpath:/sqlmaps/datebase.xml"/>
-		<property name="dataSource" ref="db_adeffect"/>
-    </bean>
-    
-    <bean id="db_resoucre" class="org.apache.commons.dbcp.BasicDataSource"	destroy-method="close">
-		<property name="driverClassName" value="${db_resoucre.driverClassName}" />
-		<property name="url" value="${db_resoucre.url}" />		
-		<property name="username" value="${db_resoucre.username}" />
-		<property name="password" value="${db_resoucre.password}" />
-		<property name="initialSize" value="32"/>
-		<property name="maxActive" value="1024"/>
-		<property name="maxIdle" value="16"/>
-		<property name="maxWait" value="3000"/>
-		<property name="validationQuery" value="select COUNT(*) from DUAL"/>
-		<property name="testWhileIdle" value="true"/>
-		<property name="timeBetweenEvictionRunsMillis" value="10000"/>
-		<property name="numTestsPerEvictionRun" value="5"/>
-		<property name="logAbandoned" value="true"/>
-		<property name="removeAbandoned" value="true"/>
-		<property name="removeAbandonedTimeout" value="300"/>  		
-	</bean>
-
-    <bean id="sqlMapClient_resoucre" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-		<property name="configLocation" value="classpath:/sqlmaps/datebase.xml"/>
-		<property name="dataSource" ref="db_resoucre"/>
-    </bean>
-    
-    <bean id="db_comment" class="org.apache.commons.dbcp.BasicDataSource"	destroy-method="close">
-		<property name="driverClassName" value="${db_comment.driverClassName}" />
-		<property name="url" value="${db_comment.url}" />		
-		<property name="username" value="${db_comment.username}" />
-		<property name="password" value="${db_comment.password}" />
-		<property name="initialSize" value="16"/>
-		<property name="maxActive" value="512"/>
-		<property name="maxIdle" value="16"/>
-		<property name="maxWait" value="3000"/>
-		<property name="validationQuery" value="select COUNT(*) from DUAL"/>
-		<property name="testWhileIdle" value="true"/>
-		<property name="timeBetweenEvictionRunsMillis" value="10000"/>
-		<property name="numTestsPerEvictionRun" value="5"/>
-		<property name="logAbandoned" value="true"/>
-		<property name="removeAbandoned" value="true"/>
-		<property name="removeAbandonedTimeout" value="300"/>  		
-	</bean>
-
-    <bean id="sqlMapClient_comment" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-		<property name="configLocation" value="classpath:/sqlmaps/datebase.xml"/>
-		<property name="dataSource" ref="db_comment"/>
-    </bean>
-     -->
+	
 </beans>

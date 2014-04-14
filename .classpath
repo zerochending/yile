@@ -62,5 +62,6 @@
 	<classpathentry kind="lib" path="webroot/WEB-INF/lib/xerces-2.6.2.jar"/>
 	<classpathentry kind="lib" path="webroot/WEB-INF/lib/xpp3-1.1.4.jar"/>
 	<classpathentry kind="lib" path="webroot/WEB-INF/lib/xwork-core-2.3.4.1.jar"/>
+	<classpathentry kind="lib" path="webroot/WEB-INF/lib/jackson-1.7.6.jar"/>
 	<classpathentry kind="output" path="webroot/WEB-INF/classes"/>
 </classpath>

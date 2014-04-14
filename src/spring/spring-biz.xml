@@ -7,8 +7,6 @@
 	default-autowire="byName">
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
 	
-	<!--
-    <bean id="appDetailsService" class="com.tencent.market2.mainpage.service.impl.AppDetailsServiceImpl" />   
-    -->
+	
     
 </beans>

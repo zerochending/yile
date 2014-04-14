@@ -7,6 +7,9 @@
 	default-autowire="byName">
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
 	
-	<bean id="indexAction" class="com.yile.index.action.IndexAction" parent="baseAction"/>
-    
+    <bean id="indexAction" class="com.yile.index.action.IndexAction" parent="baseAction"/>
+  
 </beans>
+
+
+
